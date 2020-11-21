@@ -32,6 +32,7 @@ Run the server.
 python manage.py runserver 0.0.0.0:8000
 ```
 Check that your server is running in browser `localhost:8000`.
+Test if writing to database works well by posting something in `localhost:8000/api/posts`.
 
 ## Frontend
 Go to `Scooby/scooby_frontends` and install npm/yarn packages.
@@ -45,3 +46,4 @@ yarn start
 ```
 
 Check that your frontend code is running in browser `localhost:3000`.
+Test if the sample post you wrote in the Backend step appears on the page.
