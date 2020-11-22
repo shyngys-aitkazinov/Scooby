@@ -1,7 +1,8 @@
 import Types from "./types";
 const initialState = {
     posts: [],
-    loading:false
+    loading:false,
+    stt_result: ""
 };
 
 const postReducer = (state = initialState, action) => {
@@ -17,6 +18,10 @@ const postReducer = (state = initialState, action) => {
 
         case Types.DELETE_POST: {
             return {...state, posts: state.posts.filter(post => post.id != action.payload)}
+        }
+
+        case Types.UPLOAD_FILE: {
+            return {...state, stt_result: action.payload.stt_result};
         }
         default:
             return state;

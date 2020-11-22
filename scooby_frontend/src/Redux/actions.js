@@ -1,6 +1,26 @@
 import Types from "./types";
 import axios from "axios";
 
+export const uploadFile = (formData) => {
+    return (dispatch, getState) => {
+        axios.put(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/upload_file/`, formData,
+            { file: formData.get("file") }, {
+            headers: {
+                'Content-Disposition': 'attachment; filename=formData.get("name")'
+            }
+        })
+        .then(response => {
+            console.log("Put response : ")
+            console.log(response.data)
+            dispatch({type:Types.UPLOAD_FILE, payload: response.data})
+        })
+        .catch(err => {
+            console.log(err)
+            dispatch({type:Types.POSTS_LOADING, payload:false})
+        });
+    }
+}
+
 export const getPosts = () => {
     return dispatch => {
         dispatch({type:Types.POSTS_LOADING, payload:true})
