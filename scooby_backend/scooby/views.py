@@ -7,6 +7,9 @@ from rest_framework.response import Response
 from rest_framework.parsers import FileUploadParser
 from .models import Post
 from .serializers import PostSerializer
+from STT_models.stt_engine import MozillaSTT
+import os
+import scipy.io.wavfile
 
 # Create Views here
 class PostViewSet(ModelViewSet):
@@ -23,10 +26,14 @@ class FileUploadView(APIView):
         print("Put response :" + stt_result)
         return Response(data={"stt_result": stt_result}, status=status.HTTP_201_CREATED)
 
-def handle_uploaded_file(f):
+def handle_uploaded_file(raw_audio):
     # f is Cloass UploadedFile
     # https://docs.djangoproject.com/en/3.1/ref/files/uploads/#django.core.files.uploadedfile.UploadedFile
     # TODO: Transcribe
     # Make this function in a separate file if needed
-    stt_result = "STT Result"   # temporary
+
+    with open('myfile.wav', mode='bw') as f:
+        f.write(raw_audio.read())
+    stt_result = MozillaSTT('myfile.wav')# temporary
+
     return stt_result
