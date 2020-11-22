@@ -1,7 +1,11 @@
 # Scooby
 
-1. Make a virtual environment.
-2. Create `db` directory under the root directory `Scooby` and set permissions
+1. Clone the repository.
+```
+git clone https://github.com/choch-o/Scooby.git
+```
+2. Make a virtual environment.
+3. Create `db` directory under the root directory `Scooby` and set permissions
 ```
 # In Scooby
 virtualenv venv --python=python3.8
