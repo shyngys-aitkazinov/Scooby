@@ -6,3 +6,13 @@ gunicorn==20.0.4
 python-dotenv==0.15.0
 pytz==2020.4
 sqlparse==0.4.1
+SpeechRecognition==3.8.1
+deepspeech==0.8.1
+SoundFile==0.10.3.post1
+scipy==1.5.4
+pydub==0.24.1
+google-api-python-client==1.12.8
+google-cloud-speech==2.0.1
+google-cloud-bigquery==2.4.0
+google-cloud-storage==1.33.0
+# sudo apt install sox
